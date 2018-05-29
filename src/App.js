@@ -7,7 +7,11 @@ class App extends Component {
         return (
             <div className="App">
                 {/* Create a <Toolbar /> element. */}
-                {/* Todo */}
+                <nav class="nav nav-pills nav-fill navbar-light bg-light">
+                    <a class="nav-item nav-link disabled">Companies</a>
+                    <a class="nav-item nav-link disabled">Market Cap</a>
+                    <a class="nav-item nav-link disabled">24h Volume</a>
+                </nav>
 
                 {/* Create a <Navbar /> element. */}
                 <nav className="navbar navbar-expand-md navbar-light bg-light">
