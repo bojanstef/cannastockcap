@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import { StyleSheet, css } from 'aphrodite';
 
 export class Table extends Component {
     render() {
         return (
-            <div className="container">
+            <div className={`container ${css(styles.tableContainer)}`}>
                 <div className="table-responsive">
                     <div>
-                        <h1>Top Cannabis Companies by Market Capitalization</h1>
+                        <p className={css(styles.tableTitle)}>Top Cannabis Companies by Market Capitalization</p>
                     </div>
                     <table className="table table-hover">
                     <thead>
@@ -139,3 +140,13 @@ export class Table extends Component {
         );
     }
 }
+
+const styles = StyleSheet.create({
+    tableContainer: {
+        marginTop: '8%',
+    },
+    tableTitle: {
+        textAlign: 'center',
+        fontSize: 32,
+    },
+});
