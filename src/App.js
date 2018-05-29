@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-import Toolbar from './components/Toolbar.js';
-import Navbar from './components/Navbar.js';
-import './App.css';
+import { 
+    Toolbar, 
+    Navbar, 
+    Table 
+} from './components';
 
-class App extends Component {
+export default class App extends Component {
     render() {
         return (
-            <div className="App">
+            <div>
                 <Toolbar />
                 <Navbar />
+                <Table />
             </div>
         );
     }
 }
-
-export default App;
