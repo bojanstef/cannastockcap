@@ -25,7 +25,7 @@ export class Toolbar extends Component {
 const styles = StyleSheet.create({
     toolbar: {
         paddingTop: 12,
-        fontSize: 12,
+        fontSize: 14,
     },
     pill: {
         display: 'inline-flex',
