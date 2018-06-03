@@ -38,7 +38,9 @@ export class Table extends Component {
 const styles = StyleSheet.create({
     tableContainer: {
         marginTop: '8%',
-        paddingRight: '8%',
+        '@media (min-width: 1000px)': {
+            paddingRight: '8%',
+        }
     },
     tableTitle: {
         textAlign: 'center',
