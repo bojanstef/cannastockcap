@@ -3,21 +3,6 @@ import { StyleSheet, css } from 'aphrodite';
 import { TableHeader, TableBody } from '.';
 
 export class Table extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { 
-            companies: [],
-        };
-    }
-
-    componentDidMount() {
-        fetch('http://127.0.0.1:5000/listings')
-        .then(response => response.json())
-        .then(json => {
-            this.setState({companies: json.data});
-        });
-    }
-
     render() {
         return (
             <div className={`container-fluid main-container ${css(styles.tableContainer)}`}>
@@ -27,7 +12,7 @@ export class Table extends Component {
                     </div>
                     <table className="table table-hover">
                         <TableHeader />
-                        <TableBody companies={this.state.companies} />
+                        <TableBody companies={this.props.companies} />
                     </table>
                 </div>
             </div>
