@@ -20,14 +20,14 @@ export class TableBody extends Component {
                         const graph = 'GRAPH';
 
                         return (
-                            <tr>
+                            <tr key={readableIndex}>
                                 <td>{readableIndex}</td>
                                 <td>{symbol}</td>
-                                <td>{name}</td>
+                                <td><a href={`/symbol/${symbol}/`}>{name}</a></td>
                                 <td>{marketCap}</td>
-                                <td>{price}</td>
-                                <td>{volume}</td>
-                                <td>{shares}</td>
+                                <td><a href={`/symbol/${symbol}/#price`}>{price}</a></td>
+                                <td><a href={`/symbol/${symbol}/#volume`}>{volume}</a></td>
+                                <td><a href={`/symbol/${symbol}/#shares`}>{shares}</a></td>
                                 <td className={changePercentColor}>{changePercent}%</td>
                                 <td>{graph}</td>
                             </tr>
@@ -40,10 +40,6 @@ export class TableBody extends Component {
 }
 
 const styles = StyleSheet.create({
-    red: {
-        color: '#d14836'
-    },
-    green: {
-        color: '#093'
-    },
+    red: { color: '#d14836' },
+    green: { color: '#093' },
 });

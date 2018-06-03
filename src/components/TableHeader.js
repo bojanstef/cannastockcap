@@ -7,7 +7,7 @@ export class TableHeader extends Component {
                 <tr>
                 <th>#</th>
                 <th>Symbol</th>
-                <th>Name</th>
+                <th>Company Name</th>
                 <th>Market Cap</th>
                 <th>Price</th>
                 <th>Volume (24h)</th>
