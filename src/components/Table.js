@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, css } from 'aphrodite';
-const numeral = require('numeral');
+import { TableHeader, TableBody } from '.';
 
 export class Table extends Component {
     constructor(props) {
@@ -20,40 +20,14 @@ export class Table extends Component {
 
     render() {
         return (
-            <div className={`container ${css(styles.tableContainer)}`}>
+            <div className={`container-fluid main-container ${css(styles.tableContainer)}`}>
                 <div className="table-responsive">
                     <div>
                         <p className={css(styles.tableTitle)}>Top Cannabis Companies by Market Capitalization</p>
                     </div>
                     <table className="table table-hover">
-                    <thead>
-                        <tr>
-                        <th>#</th>
-                        <th>Symbol</th>
-                        <th>Name</th>
-                        <th>Market Cap</th>
-                        <th>Price</th>
-                        <th>Volume (24h)</th>
-                        <th>Shares</th>
-                        <th>Change (24h)</th>
-                        <th>Price Graph (7d)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.companies.map((company, index) => {
-                            return <tr>
-                                        <td>{index + 1}</td>
-                                        <td>{company.symbol}</td>
-                                        <td>{company.name}</td>
-                                        <td>{numeral(company.marketcap).format('$0,0')}</td>
-                                        <td>{numeral(company.price).format('$0,0.00')}</td>
-                                        <td>{numeral(company.volume).format('$0,0')}</td>
-                                        <td>{numeral(company.shares).format('0,0')}</td>
-                                        <td>{company.changepct}%</td>
-                                        <td>GRAPH</td>
-                                    </tr>
-                        })}
-                    </tbody>
+                        <TableHeader />
+                        <TableBody companies={this.state.companies} />
                     </table>
                 </div>
             </div>
@@ -63,7 +37,7 @@ export class Table extends Component {
 
 const styles = StyleSheet.create({
     tableContainer: {
-        marginTop: '8%',
+        marginTop: '8%'
     },
     tableTitle: {
         textAlign: 'center',
