@@ -1,5 +1,6 @@
-export { Toolbar } from './Toolbar';
+export { Companies } from './Companies';
+export { Company } from './Company';
 export { Navbar } from './Navbar';
-export { Table } from './Table';
-export { TableHeader } from './TableHeader';
 export { TableBody } from './TableBody';
+export { TableHeader } from './TableHeader';
+export { Toolbar } from './Toolbar';

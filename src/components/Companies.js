@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, css } from 'aphrodite';
 import { TableHeader, TableBody } from '.';
 
-export class Table extends Component {
+export class Companies extends Component {
     render() {
         return (
             <div className={`container-fluid main-container ${css(styles.tableContainer)}`}>

@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import { 
-    Toolbar, 
-    Navbar, 
-    Table 
+    BrowserRouter as Router,
+    Route
+} from 'react-router-dom';
+import { 
+    Toolbar,
+    Navbar,
+    Companies,
+    Company
 } from './components';
 
 export default class App extends Component {
@@ -23,18 +28,22 @@ export default class App extends Component {
     }
 
     render() {
+        const companies = this.state.companies;
         const totals = {
-            'companies': this.state.companies.length,
-            'marketcap': this.state.companies.reduce((accum, next) => { return accum + this.numberValue(next.marketcap) }, 0),
-            'volume': this.state.companies.reduce((accum, next) => { return accum + this.numberValue(next.volume) }, 0)
+            'companies': companies.length,
+            'marketcap': companies.reduce((accum, next) => { return accum + this.numberValue(next.marketcap) }, 0),
+            'volume': companies.reduce((accum, next) => { return accum + this.numberValue(next.volume) }, 0)
         };
 
         return (
-            <div>
-                <Toolbar totals={totals} />
-                <Navbar />
-                <Table companies={this.state.companies} />
-            </div>
+            <Router>
+                <div>
+                    <Toolbar totals={totals}/>
+                    <Navbar />
+                    <Route exact path="/" render={(props) => <Companies companies={companies} {...props} />} />
+                    <Route path="/symbol/:ticker" render={(props) => <Company company={props.match.params.ticker}/>} />
+                </div>
+            </Router>
         );
     }
 
