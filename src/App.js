@@ -41,11 +41,15 @@ export default class App extends Component {
                     <Toolbar totals={totals}/>
                     <Navbar />
                     <Route exact path="/" render={(props) => <Companies companies={companies} {...props} />} />
+
+                    {/* This should just show <Company /> and the API should return the correct json. */}
                     <Route path="/symbol/:symbol" render={(props) => {
                         const symbol = props.match.params.symbol;
                         const company = companies.find(object => object.symbol === symbol);
                         return <Company company={company} {...props} />;
                     }} />
+                    {/* TODO: - Above. */}
+                    
                     <Footer />
                 </div>
             </Router>
