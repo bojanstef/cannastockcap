@@ -6,7 +6,7 @@ export class Navbar extends Component {
         return (
             <nav className={`navbar navbar-expand-sm navbar-light bg-light ${css(styles.navbar)}`}>
                 <div className="container-fluid main-container">
-                    <a class="navbar-brand" href="#home">
+                    <a className="navbar-brand" href="/">
                         <img src="/logo.svg" width="320" height="80" alt="Logo" />
                     </a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsible-navbar" aria-controls="collapsible-navbar" aria-expanded="false" aria-label="Toggle navigation">

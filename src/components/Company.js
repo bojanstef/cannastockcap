@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 export class Company extends Component {
-    render() {
+    render() { 
         return (
             <div>
-                <p>It Works! {this.props.company}</p>
+                <p>It Works! {(this.props.company || '').symbol}</p>
             </div>
         );
     }

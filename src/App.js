@@ -7,7 +7,8 @@ import {
     Toolbar,
     Navbar,
     Companies,
-    Company
+    Company,
+    Footer
 } from './components';
 
 export default class App extends Component {
@@ -22,7 +23,6 @@ export default class App extends Component {
         fetch('http://127.0.0.1:5000/listings')
         .then(response => response.json())
         .then(json => {
-            console.log(json.data);
             this.setState({companies: json.data});
         });
     }
@@ -41,7 +41,12 @@ export default class App extends Component {
                     <Toolbar totals={totals}/>
                     <Navbar />
                     <Route exact path="/" render={(props) => <Companies companies={companies} {...props} />} />
-                    <Route path="/symbol/:ticker" render={(props) => <Company company={props.match.params.ticker}/>} />
+                    <Route path="/symbol/:symbol" render={(props) => {
+                        const symbol = props.match.params.symbol;
+                        const company = companies.find(object => object.symbol === symbol);
+                        return <Company company={company} {...props} />;
+                    }} />
+                    <Footer />
                 </div>
             </Router>
         );
