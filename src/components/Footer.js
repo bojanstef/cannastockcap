@@ -12,7 +12,7 @@ export class Footer extends Component {
             <div>
                 <div className={`my-4 ${css(styles.centered)}`}>
                     <p className={css(styles.bold)}>Total Market Cap: {totalMarketCap}</p>
-                    <p>Last updated: {lastUpdated}</p>
+                    <p>Last updated: {lastUpdated} EDT</p>
                 </div>
                 <div className={`container-fluid ${css(styles.background)}`}>
                     <div className={`container-fluid main-container ${css(styles.footer)}`}>
@@ -21,7 +21,7 @@ export class Footer extends Component {
                                 <Logo src={'logo-light.svg'} />
                             </div>
                             <div className="col-sm">
-                                To advertise with us fill out this <a href='https://goo.gl/forms/5tdz593AMMEYuGDB3' target='_blank' rel="noopener noreferrer">form</a>
+                                To advertise with us fill out this <a href='https://goo.gl/forms/5tdz593AMMEYuGDB3' target='_blank' rel='noopener noreferrer'>form</a>
                             </div>
                         </div>
                     </div>
