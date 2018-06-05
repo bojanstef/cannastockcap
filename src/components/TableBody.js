@@ -9,6 +9,7 @@ export class TableBody extends Component {
                 {
                     this.props.companies.map((company, index) => {
                         const readableIndex = index + 1;
+                        const market = company.market;
                         const symbol = company.symbol;
                         const name = company.name;
                         const marketCap = numeral(company.marketcap).format('$0,0');
@@ -17,19 +18,27 @@ export class TableBody extends Component {
                         const shares = numeral(company.shares).format('0,0');
                         const changePercent = numeral(company.changepct).format('0.00');
                         const changePercentColor = css(changePercent.includes('-') ? styles.red : styles.green);
-                        const graph = 'GRAPH';
 
                         return (
                             <tr key={readableIndex}>
                                 <td>{readableIndex}</td>
                                 <td>{symbol}</td>
-                                <td><a href={`/symbol/${symbol}/`}>{name}</a></td>
+                                
+                                <td><a href={`http://www.google.com/finance/?q=${market}:${symbol}`} target='_blank'>{name}</a></td>
+                                {/* <td><a href={`/symbol/${symbol}/`}>{name}</a></td> */}
+
                                 <td>{marketCap}</td>
-                                <td><a href={`/symbol/${symbol}/#price`}>{price}</a></td>
-                                <td><a href={`/symbol/${symbol}/#volume`}>{volume}</a></td>
-                                <td><a href={`/symbol/${symbol}/#shares`}>{shares}</a></td>
+
+                                <td><a href={`http://www.google.com/finance/?q=${market}:${symbol}`} target='_blank'>{price}</a></td>
+                                {/* <td><a href={`/symbol/${symbol}/#price`}>{price}</a></td> */}
+
+                                <td><a href={`http://www.google.com/finance/?q=${market}:${symbol}`} target='_blank'>{volume}</a></td>
+                                {/* <td><a href={`/symbol/${symbol}/#volume`}>{volume}</a></td> */}
+
+                                <td><a href={`http://www.google.com/finance/?q=${market}:${symbol}`} target='_blank'>{shares}</a></td>
+                                {/* <td><a href={`/symbol/${symbol}/#shares`}>{shares}</a></td> */}
+                                
                                 <td className={changePercentColor}>{changePercent}%</td>
-                                <td>{graph}</td>
                             </tr>
                         );
                     })

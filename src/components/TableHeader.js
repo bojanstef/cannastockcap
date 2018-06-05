@@ -13,7 +13,6 @@ export class TableHeader extends Component {
                 <th>Volume (24h)</th>
                 <th>Shares</th>
                 <th>Change (24h)</th>
-                <th>Price Graph (7d)</th>
                 </tr>
             </thead>
         );

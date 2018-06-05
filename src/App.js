@@ -11,7 +11,8 @@ import {
 export default class App extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
+            metadata: {},
             companies: [],
         };
     }
@@ -20,7 +21,7 @@ export default class App extends Component {
         fetch('http://127.0.0.1:5000/companies')
         .then(response => response.json())
         .then(json => {
-            this.setState({companies: json.data});
+            this.setState({ companies: json.data });
         });
     }
 
@@ -29,7 +30,8 @@ export default class App extends Component {
         const totals = {
             'companies': companies.length,
             'marketcap': companies.reduce((accum, next) => { return accum + this.numberValue(next.marketcap) }, 0),
-            'volume': companies.reduce((accum, next) => { return accum + this.numberValue(next.volume) }, 0)
+            'volume': companies.reduce((accum, next) => { return accum + this.numberValue(next.volume) }, 0),
+            'tradetime': this.getTradeTime(companies)
         };
 
         return (
@@ -38,12 +40,16 @@ export default class App extends Component {
                 <Navbar />
                 <Route exact path="/" render={(props) => <Companies companies={companies} {...props} />} />
                 <Route path="/symbol/:symbol" component={Company} />
-                <Footer />
+                <Footer totals={totals} />
             </div>
         );
     }
 
     numberValue(string) {
         return isNaN(string) ? 0 : Number(string)
+    }
+
+    getTradeTime(companies) {
+        return (typeof companies[0] === 'undefined') ? '' : companies[0].tradetime
     }
 }
