@@ -18,7 +18,7 @@ export default class App extends Component {
     }
 
     componentDidMount() {
-        fetch('http://127.0.0.1:5000/companies')
+        fetch('http://cannastockcap-dev.us-west-1.elasticbeanstalk.com/companies')
         .then(response => response.json())
         .then(json => {
             this.setState({ companies: json.data });

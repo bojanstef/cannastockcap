@@ -9,7 +9,7 @@ export class Company extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://127.0.0.1:5000/symbol/${this.props.match.params.symbol}`)
+        fetch(`http://cannastockcap-dev.us-west-1.elasticbeanstalk.com/symbol/${this.props.match.params.symbol}`)
         .then(response => response.json())
         .then(json => {
             this.setState({company: json.data});
